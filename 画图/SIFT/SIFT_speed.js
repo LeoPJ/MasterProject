@@ -1,0 +1,85 @@
+var video = []
+for (var i = 0; i < 10; i++){
+  video.push('片段' + (i+1));
+}
+var full_t = [63.2, 106.5, 97.1, 90.2, 77.2, 86.3, 101.4, 81.2, 68.2, 112.8];
+var part_t = [56.1, 91.4, 80.3, 74.3, 65.9, 70.6, 92.7, 68.8, 59.1, 97.3];
+
+
+option = {
+   legend: {
+        textStyle: {fontSize: 18, color: '#000000'},
+        itemGap: 70,
+        top: 50
+    },
+    grid: {
+      top: 100,
+      height: 250
+    },
+  xAxis: {
+    type: 'category',
+    data: video,
+    name: '视频片段',
+    nameLocation: 'center',
+    nameGap: 45,
+    nameTextStyle: {fontSize: 20},
+    axisLine: {
+            show: true,
+            lineStyle: {color: '#000000', width: 1},
+            // symbol: ['none', 'arrow'],
+            // symbolSize: [7, 10],
+            // symbolOffset: [0, 7]
+     },
+    axisLabel: {
+            fontSize: 16,
+            margin: 13
+    },
+  },
+  yAxis: {
+    type: 'value',
+     name: '计算时长（秒）',
+        nameLocation: 'center',
+        nameGap: 50,
+        nameTextStyle: {fontSize: 20},
+            axisLabel: {
+            fontSize: 16,
+            margin: 13
+        },
+        axisLine: {
+            show: true, lineStyle: {color: '#000000', width: 1.5},
+            // symbol: ['none', 'arrow'],
+            // symbolSize: [7, 10],
+            // symbolOffset: [0, 7]
+        }
+  },
+  series: [
+    {
+      name: '全局提取',
+      data: full_t,
+      type: 'bar',
+      // barWidth : 50,
+      label: {
+        show: true,
+        position: 'top',
+        textStyle: {fontSize: 14, color: '#000000'}
+      },
+      itemStyle: {
+        color: '#EE3B3B'
+      }
+    },
+    {
+      name: '斜向区域抽检',
+      data: part_t,
+      type: 'bar',
+      // barWidth : 50,
+      label: {
+        show: true,
+        position: 'top',
+        textStyle: {fontSize: 14, color: '#000000'}
+      },
+      itemStyle:{
+        color: '#009ACD'
+      }
+    },
+  ]
+};
